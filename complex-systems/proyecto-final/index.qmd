@@ -1,0 +1,20 @@
+---
+title: "Proyecto final"
+sidebar: complex-systems
+---
+
+## Resumen
+
+Próximamente.
+
+//## Pregunta
+
+//## Metodología
+
+//## Modelo
+
+//## Resultados
+
+//## Discusión
+
+//## Código

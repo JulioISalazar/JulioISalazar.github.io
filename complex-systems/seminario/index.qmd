@@ -1,0 +1,9 @@
+---
+title: "Seminario"
+sidebar: complex-systems
+listing:
+  contents: "*.qmd"
+  type: default
+---
+
+Notas, presentaciones y trabajos desarrollados durante el seminario.

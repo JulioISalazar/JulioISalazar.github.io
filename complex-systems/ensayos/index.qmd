@@ -1,0 +1,10 @@
+---
+title: "Ensayos"
+sidebar: complex-systems
+listing:
+  contents: "*.qmd"
+  type: default
+  sort: "date desc"
+---
+
+Ensayos escritos para el curso de Sistemas Complejos.

@@ -12,7 +12,7 @@ I work at the intersection of artificial intelligence, philosophy and media
 Mathematical models, simulations, code, and essays exploring nonlinear
 dynamics, networks, emergence, and chaos.
 
-[Explore Complex Systems →](complex-systems.qmd)
+[Explore Complex Systems →](complex-systems/index.qmd)
 
 ### Research
 Selected research and technical work.

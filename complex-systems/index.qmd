@@ -1,0 +1,24 @@
+---
+title: "Sistemas Complejos"
+sidebar: complex-systems
+---
+
+Este sitio reúne mis ensayos, prácticas computacionales, trabajo de seminario y proyecto final del curso de Sistemas Complejos.
+
+## Contenido
+
+### Ensayos
+
+Textos y reflexiones sobre sistemas complejos.
+
+### Prácticas computacionales
+
+Simulaciones, modelos y experimentos computacionales.
+
+### Seminario
+
+Material y trabajo desarrollado para el seminario.
+
+### Proyecto final
+
+Desarrollo del proyecto final del curso.

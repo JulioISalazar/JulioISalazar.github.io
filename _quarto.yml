@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Julio Salazar"
+
   navbar:
     left:
       - href: index.qmd
@@ -13,13 +14,30 @@ website:
         text: Projects
       - href: writing.qmd
         text: Writing
-      - href: complex-systems.qmd
+      - href: complex-systems/index.qmd
         text: Complex Systems
       - href: about.qmd
         text: About
+
+  sidebar:
+    - id: complex-systems
+      title: "Complex Systems"
+      style: floating
+      contents:
+        - href: complex-systems/index.qmd
+          text: Inicio
+        - href: complex-systems/ensayos/index.qmd
+          text: Ensayos
+        - href: complex-systems/practicas/index.qmd
+          text: Prácticas computacionales
+        - href: complex-systems/seminario/index.qmd
+          text: Seminario
+        - href: complex-systems/proyecto-final/index.qmd
+          text: Proyecto final
 
 format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
+    toc: true 
+    

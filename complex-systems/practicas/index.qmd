@@ -1,0 +1,9 @@
+---
+title: "Prácticas computacionales"
+sidebar: complex-systems
+listing:
+  contents: "*.qmd"
+  type: default
+---
+
+Simulaciones, modelos, código y experimentos computacionales.
