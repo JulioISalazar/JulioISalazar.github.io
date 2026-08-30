@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Julio Salazar",
+    "section": "",
+    "text": "I work at the intersection of artificial intelligence, philosophy and media"
+  },
+  {
+    "objectID": "index.html#ai-mathematics-complex-systems-philosophy",
+    "href": "index.html#ai-mathematics-complex-systems-philosophy",
+    "title": "Julio Salazar",
+    "section": "",
+    "text": "I work at the intersection of artificial intelligence, philosophy and media"
+  },
+  {
+    "objectID": "index.html#selected-work",
+    "href": "index.html#selected-work",
+    "title": "Julio Salazar",
+    "section": "Selected Work",
+    "text": "Selected Work\n\nComplex Systems\nMathematical models, simulations, code, and essays exploring nonlinear dynamics, networks, emergence, and chaos.\nExplore Complex Systems →\n\n\nResearch\nSelected research and technical work.\nView Research →\n\n\nProjects\nAI, data, mathematical modelling, and software projects.\nView Projects →"
+  },
+  {
+    "objectID": "complex-systems.html",
+    "href": "complex-systems.html",
+    "title": "Complex Systems",
+    "section": "",
+    "text": "This section contains my coursework, simulations, essays, and computational experiments in complex systems."
+  },
+  {
+    "objectID": "complex-systems.html#projects",
+    "href": "complex-systems.html#projects",
+    "title": "Complex Systems",
+    "section": "Projects",
+    "text": "Projects\n\n1. Logistic Map and Bifurcations\nAn exploration of nonlinear dynamics, bifurcations, and the transition to chaos using the logistic map.\nView project →"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
