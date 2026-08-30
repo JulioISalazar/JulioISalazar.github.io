@@ -1,0 +1,28 @@
+---
+title: "Julio Salazar"
+---
+
+## AI · Mathematics · Complex Systems · Philosophy
+
+I work at the intersection of artificial intelligence, philosophy and media 
+
+## Selected Work
+
+### Complex Systems
+Mathematical models, simulations, code, and essays exploring nonlinear
+dynamics, networks, emergence, and chaos.
+
+[Explore Complex Systems →](complex-systems.qmd)
+
+### Research
+Selected research and technical work.
+
+[View Research →](research.qmd)
+
+### Projects
+AI, data, mathematical modelling, and software projects.
+
+[View Projects →](projects.qmd)
+
+
+
