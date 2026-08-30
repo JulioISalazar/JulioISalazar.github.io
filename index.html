@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Writing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./complex-systems.html"> 
+    <a class="nav-link" href="./complex-systems/index.html"> 
 <span class="menu-text">Complex Systems</span></a>
   </li>  
   <li class="nav-item">
@@ -176,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="complex-systems" class="level3">
 <h3 class="anchored" data-anchor-id="complex-systems">Complex Systems</h3>
 <p>Mathematical models, simulations, code, and essays exploring nonlinear dynamics, networks, emergence, and chaos.</p>
-<p><a href="./complex-systems.html">Explore Complex Systems →</a></p>
+<p><a href="./complex-systems/index.html">Explore Complex Systems →</a></p>
 </section>
 <section id="research" class="level3">
 <h3 class="anchored" data-anchor-id="research">Research</h3>
@@ -266,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/JulioISalazar\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

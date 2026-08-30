@@ -21,18 +21,81 @@
     "text": "Selected Work\n\nComplex Systems\nMathematical models, simulations, code, and essays exploring nonlinear dynamics, networks, emergence, and chaos.\nExplore Complex Systems →\n\n\nResearch\nSelected research and technical work.\nView Research →\n\n\nProjects\nAI, data, mathematical modelling, and software projects.\nView Projects →"
   },
   {
-    "objectID": "complex-systems.html",
-    "href": "complex-systems.html",
-    "title": "Complex Systems",
+    "objectID": "complex-systems/ensayos/index.html",
+    "href": "complex-systems/ensayos/index.html",
+    "title": "Ensayos",
     "section": "",
-    "text": "This section contains my coursework, simulations, essays, and computational experiments in complex systems."
+    "text": "Ensayos escritos para el curso de Sistemas Complejos.\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home",
+      "Ensayos"
+    ]
   },
   {
-    "objectID": "complex-systems.html#projects",
-    "href": "complex-systems.html#projects",
-    "title": "Complex Systems",
-    "section": "Projects",
-    "text": "Projects\n\n1. Logistic Map and Bifurcations\nAn exploration of nonlinear dynamics, bifurcations, and the transition to chaos using the logistic map.\nView project →"
+    "objectID": "complex-systems/index.html",
+    "href": "complex-systems/index.html",
+    "title": "Sistemas Complejos",
+    "section": "",
+    "text": "Este sitio reúne mis ensayos, prácticas computacionales, trabajo de seminario y proyecto final del curso de Sistemas Complejos.",
+    "crumbs": [
+      "Home",
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "complex-systems/index.html#contenido",
+    "href": "complex-systems/index.html#contenido",
+    "title": "Sistemas Complejos",
+    "section": "Contenido",
+    "text": "Contenido\n\nEnsayos\nTextos y reflexiones sobre sistemas complejos.\n\n\nPrácticas computacionales\nSimulaciones, modelos y experimentos computacionales.\n\n\nSeminario\nMaterial y trabajo desarrollado para el seminario.\n\n\nProyecto final\nDesarrollo del proyecto final del curso.",
+    "crumbs": [
+      "Home",
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "complex-systems/seminario/index.html",
+    "href": "complex-systems/seminario/index.html",
+    "title": "Seminario",
+    "section": "",
+    "text": "Notas, presentaciones y trabajos desarrollados durante el seminario.\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home",
+      "Seminario"
+    ]
+  },
+  {
+    "objectID": "complex-systems/proyecto-final/index.html",
+    "href": "complex-systems/proyecto-final/index.html",
+    "title": "Proyecto final",
+    "section": "",
+    "text": "Próximamente.\n//## Pregunta\n//## Metodología\n//## Modelo\n//## Resultados\n//## Discusión\n//## Código",
+    "crumbs": [
+      "Home",
+      "Proyecto final"
+    ]
+  },
+  {
+    "objectID": "complex-systems/proyecto-final/index.html#resumen",
+    "href": "complex-systems/proyecto-final/index.html#resumen",
+    "title": "Proyecto final",
+    "section": "",
+    "text": "Próximamente.\n//## Pregunta\n//## Metodología\n//## Modelo\n//## Resultados\n//## Discusión\n//## Código",
+    "crumbs": [
+      "Home",
+      "Proyecto final"
+    ]
+  },
+  {
+    "objectID": "complex-systems/practicas/index.html",
+    "href": "complex-systems/practicas/index.html",
+    "title": "Prácticas computacionales",
+    "section": "",
+    "text": "Simulaciones, modelos, código y experimentos computacionales.\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home",
+      "Prácticas computacionales"
+    ]
   },
   {
     "objectID": "about.html",
