@@ -1,10 +1,16 @@
 ---
 title: "Ensayos"
 sidebar: complex-systems
-listing:
-  contents: "*.qmd"
-  type: default
-  sort: "date desc"
 ---
 
 Ensayos escritos para el curso de Sistemas Complejos.
+
+## Ensayo 1
+
+### [Características generales de los sistemas complejos](ensayo-01/)
+
+Reflexiones a partir de *Complexity: A Guided Tour*, Capítulo 1: *What is Complexity?*, de Melanie Mitchell.
+
+**Agosto 2026**
+
+[Leer ensayo →](ensayo-01/) 

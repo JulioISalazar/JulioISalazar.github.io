@@ -26,12 +26,19 @@ website:
       contents:
         - href: complex-systems/index.qmd
           text: Inicio
-        - href: complex-systems/ensayos/index.qmd
-          text: Ensayos
+
+        - section: "Ensayos"
+          href: complex-systems/ensayos/index.qmd
+          contents:
+            - href: complex-systems/ensayos/ensayo-01/index.qmd
+              text: "Ensayo 1"
+
         - href: complex-systems/practicas/index.qmd
           text: Prácticas computacionales
+
         - href: complex-systems/seminario/index.qmd
           text: Seminario
+
         - href: complex-systems/proyecto-final/index.qmd
           text: Proyecto final
 
@@ -39,5 +46,4 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true 
-    
+    toc: true
