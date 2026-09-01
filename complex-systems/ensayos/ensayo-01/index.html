@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Julio Salazar">
 
-<title>Complex Systems – Julio Salazar</title>
+<title>Características generales de los sistemas complejos: Reflexiones a partir del texto: Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell – Julio Salazar</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,26 +27,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,63 +80,63 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Julio Salazar</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link" href="../../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./writing.html"> 
+    <a class="nav-link" href="../../../writing.html"> 
 <span class="menu-text">Writing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./complex-systems/index.html"> 
+    <a class="nav-link active" href="../../../complex-systems/index.html" aria-current="page"> 
 <span class="menu-text">Complex Systems</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -125,36 +145,97 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../complex-systems/ensayos/index.html">Ensayos</a></li><li class="breadcrumb-item"><a href="../../../complex-systems/ensayos/ensayo-01/index.html">Ensayo 1</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../complex-systems/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../complex-systems/ensayos/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ensayos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../complex-systems/ensayos/ensayo-01/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Ensayo 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../complex-systems/practicas/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prácticas computacionales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../complex-systems/seminario/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminario</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../complex-systems/proyecto-final/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proyecto final</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#projects" id="toc-projects" class="nav-link active" data-scroll-target="#projects">Projects</a>
-  <ul class="collapse">
-  <li><a href="#logistic-map-and-bifurcations" id="toc-logistic-map-and-bifurcations" class="nav-link" data-scroll-target="#logistic-map-and-bifurcations">1. Logistic Map and Bifurcations</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+        
+    <div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../complex-systems/ensayos/index.html">Ensayos</a></li><li class="breadcrumb-item"><a href="../../../complex-systems/ensayos/ensayo-01/index.html">Ensayo 1</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Complex Systems</h1>
+<h1 class="title">Características generales de los sistemas complejos: Reflexiones a partir del texto: Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Julio Salazar </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">agosto 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -164,19 +245,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This section contains my coursework, simulations, essays, and computational experiments in complex systems.</p>
-<section id="projects" class="level2">
-<h2 class="anchored" data-anchor-id="projects">Projects</h2>
-<section id="logistic-map-and-bifurcations" class="level3">
-<h3 class="anchored" data-anchor-id="logistic-map-and-bifurcations">1. Logistic Map and Bifurcations</h3>
-<p>An exploration of nonlinear dynamics, bifurcations, and the transition to chaos using the logistic map.</p>
-<p><a href="complex-systems/logistic-map.qmd">View project →</a></p>
+<p>Las neurociencias, la Inteligencia Artificial, la economía, la inmunología, el comportamiento colectivo de los insectos o la sociología digital (comportamiento de usuarios de la World Wide Web) parecen disciplinas aisladas, que estudian fenómenos distintos con técnicas distintas; sin embargo, estas y otras disciplinas que tradicionalmente han sido independientes –tanto metodológica como epistemológicamente– parecen compartir una serie de características generales que se pueden insertar dentro de la misma familia de conceptos: sistemas complejos, complejidad, ciencias de la complejidad. Conceptualmente, es preciso detenrnos en cada uno de estos.</p>
+<p>De los tres conceptos mencionados arriba, es bastante plausible decir que el de sistemas complejos es el que tiene una correlación más concreta con los fenómenos empíricos. Un sistema complejo es, por ejemplo, el sistema inmunológico, en el que la emergencia de células que contrarrestan las características de las células agresoras se da mediante un comportamiento colectivo de dichas células en cantidades masivas de las mismas. Otro ejemplo de un sistema complejo es el del las Redes Neuronales Artificiales (ANNs), específicamente, diversos tipos de Redes Neuronales Profundas (DNNs), donde el diseño y las técnicas matemáticas para entrenarlas son inicialmente pre-especificados, pero a lo largo del tiempo, en conjunto (billones de redes), éstas parecen mostrar un comportamiento emergente (como generar imágenes, código o alucionaciones) que muchas veces no es explicable causalmente (es una caja negra). Asimismo, cualquier sistema maecoecónmico suficientemente grande (como la economía de México o el mercado de valores Nasdaq) constituye un sistema complejo: se compone de individuos cuyos objetivos económicos ideales se pueden resumir en maximizar sus ganancias monetarias y tiene como resultado diversos movimientos macro cuyo nivel de sofisticación es complicado de estudiar o entender. De esta manera, un sistema complejo es cualquier sistema auto-otganizado (mayormente adaptativo) que exhibe, en conjunto, características de las mencionadas arriba (y algunas más). Más concretamente, Melanie Mitchell los define como sigue: “(…)un sistema en el que grandes redes de componentes, sin control central y con reglas operativas simples, dan lugar a un comportamiento colectivo complejo, a un procesamiento de información sofisticado y a la adaptación mediante el aprendizaje o la evolución.” <span class="citation" data-cites="Mitchell2009">(<a href="#ref-Mitchell2009" role="doc-biblioref">Mitchell 2009, 30</a>)</span>.</p>
+<p>Con esta definición de sistemas complejos, el siguiente nivel conceptual de abstracción que podemos tocar es el del término “complejidad”. Tenemos una noción de lo que son los sistemas complejos concretos, pero “complejidad” en abstracto es un término mucho más oscuro, sobre todo cuando en el lenguaje cotidiano es utilizado con frencuencia, e intercambiado por otros términos como “complicado” o “difícil”. En realidad, a lo que formalmente se aspira cuando se habla de complejidad es a poder medir la complejidad de un sistema cuantitativamente; para esto, varios sistemas matemáticos han sido porpuestos (como la complejidad de Kolmogorov o la entropía de Shannon), pero aun no existe una manera universal de medir la complejidad de algo (como sí la hay, con ciertos límites, para fenómenos como el de la gravedad o la densidad), por lo que no existe una definición formal universalmente aceptada del concepto de complejidad, lo que se tiene son una serie de propuestas y características cualitativas, algunas de las cuales ya hemos mencionado aquí.</p>
+<p>Finalmente y con lo anterior en mente, la existencia de un concepto como el de “ciencias de la complejidad” responde, desde mi punto de vista, más a una aspiración que a una ciencia formalmente establecida; sin embargo, existen métodos formales, fenómenos sofisticados y una serie interesante de teorías, descripciones y marcos conceptuales asociados con el concepto de “complejidad”, que podrían constituir una ciencia cuyos fundamentos (tal como entendemos las ciencias formales y naturales hoy día) aun faltan por esgrimirse y clarificarse.</p>
 
 
-</section>
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Mitchell2009" class="csl-entry" role="listitem">
+Mitchell, Melanie. 2009. <em>Complexity: A Guided Tour</em>. Oxford University Press.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -202,12 +283,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiado");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiado");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -250,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/JulioISalazar\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

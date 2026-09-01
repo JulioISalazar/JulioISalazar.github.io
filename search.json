@@ -25,43 +25,32 @@
     "href": "complex-systems/ensayos/index.html",
     "title": "Ensayos",
     "section": "",
-    "text": "Ensayos escritos para el curso de Sistemas Complejos.\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Ensayos escritos para el curso de Sistemas Complejos.",
     "crumbs": [
       "Home",
       "Ensayos"
     ]
   },
   {
-    "objectID": "complex-systems/index.html",
-    "href": "complex-systems/index.html",
-    "title": "Sistemas Complejos",
-    "section": "",
-    "text": "Este sitio reúne mis ensayos, prácticas computacionales, trabajo de seminario y proyecto final del curso de Sistemas Complejos.",
+    "objectID": "complex-systems/ensayos/index.html#ensayo-1",
+    "href": "complex-systems/ensayos/index.html#ensayo-1",
+    "title": "Ensayos",
+    "section": "Ensayo 1",
+    "text": "Ensayo 1\n\nCaracterísticas generales de los sistemas complejos\nReflexiones a partir de Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell.\nAgosto 2026\nLeer ensayo →",
     "crumbs": [
       "Home",
-      "Inicio"
+      "Ensayos"
     ]
   },
   {
-    "objectID": "complex-systems/index.html#contenido",
-    "href": "complex-systems/index.html#contenido",
-    "title": "Sistemas Complejos",
-    "section": "Contenido",
-    "text": "Contenido\n\nEnsayos\nTextos y reflexiones sobre sistemas complejos.\n\n\nPrácticas computacionales\nSimulaciones, modelos y experimentos computacionales.\n\n\nSeminario\nMaterial y trabajo desarrollado para el seminario.\n\n\nProyecto final\nDesarrollo del proyecto final del curso.",
-    "crumbs": [
-      "Home",
-      "Inicio"
-    ]
-  },
-  {
-    "objectID": "complex-systems/seminario/index.html",
-    "href": "complex-systems/seminario/index.html",
-    "title": "Seminario",
+    "objectID": "complex-systems/practicas/index.html",
+    "href": "complex-systems/practicas/index.html",
+    "title": "Prácticas computacionales",
     "section": "",
-    "text": "Notas, presentaciones y trabajos desarrollados durante el seminario.\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Simulaciones, modelos, código y experimentos computacionales.\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Home",
-      "Seminario"
+      "Prácticas computacionales"
     ]
   },
   {
@@ -87,14 +76,48 @@
     ]
   },
   {
-    "objectID": "complex-systems/practicas/index.html",
-    "href": "complex-systems/practicas/index.html",
-    "title": "Prácticas computacionales",
+    "objectID": "complex-systems/seminario/index.html",
+    "href": "complex-systems/seminario/index.html",
+    "title": "Seminario",
     "section": "",
-    "text": "Simulaciones, modelos, código y experimentos computacionales.\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Notas, presentaciones y trabajos desarrollados durante el seminario.\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Home",
-      "Prácticas computacionales"
+      "Seminario"
+    ]
+  },
+  {
+    "objectID": "complex-systems/index.html",
+    "href": "complex-systems/index.html",
+    "title": "Sistemas Complejos",
+    "section": "",
+    "text": "Este sitio reúne mis ensayos, prácticas computacionales, trabajo de seminario y proyecto final del curso de Sistemas Complejos.",
+    "crumbs": [
+      "Home",
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "complex-systems/index.html#contenido",
+    "href": "complex-systems/index.html#contenido",
+    "title": "Sistemas Complejos",
+    "section": "Contenido",
+    "text": "Contenido\n\nEnsayos\nTextos y reflexiones sobre sistemas complejos.\n\n\nPrácticas computacionales\nSimulaciones, modelos y experimentos computacionales.\n\n\nSeminario\nMaterial y trabajo desarrollado para el seminario.\n\n\nProyecto final\nDesarrollo del proyecto final del curso.",
+    "crumbs": [
+      "Home",
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "complex-systems/ensayos/ensayo-01/index.html",
+    "href": "complex-systems/ensayos/ensayo-01/index.html",
+    "title": "Características generales de los sistemas complejos: Reflexiones a partir del texto: Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell",
+    "section": "",
+    "text": "Las neurociencias, la Inteligencia Artificial, la economía, la inmunología, el comportamiento colectivo de los insectos o la sociología digital (comportamiento de usuarios de la World Wide Web) parecen disciplinas aisladas, que estudian fenómenos distintos con técnicas distintas; sin embargo, estas y otras disciplinas que tradicionalmente han sido independientes –tanto metodológica como epistemológicamente– parecen compartir una serie de características generales que se pueden insertar dentro de la misma familia de conceptos: sistemas complejos, complejidad, ciencias de la complejidad. Conceptualmente, es preciso detenrnos en cada uno de estos.\nDe los tres conceptos mencionados arriba, es bastante plausible decir que el de sistemas complejos es el que tiene una correlación más concreta con los fenómenos empíricos. Un sistema complejo es, por ejemplo, el sistema inmunológico, en el que la emergencia de células que contrarrestan las características de las células agresoras se da mediante un comportamiento colectivo de dichas células en cantidades masivas de las mismas. Otro ejemplo de un sistema complejo es el del las Redes Neuronales Artificiales (ANNs), específicamente, diversos tipos de Redes Neuronales Profundas (DNNs), donde el diseño y las técnicas matemáticas para entrenarlas son inicialmente pre-especificados, pero a lo largo del tiempo, en conjunto (billones de redes), éstas parecen mostrar un comportamiento emergente (como generar imágenes, código o alucionaciones) que muchas veces no es explicable causalmente (es una caja negra). Asimismo, cualquier sistema maecoecónmico suficientemente grande (como la economía de México o el mercado de valores Nasdaq) constituye un sistema complejo: se compone de individuos cuyos objetivos económicos ideales se pueden resumir en maximizar sus ganancias monetarias y tiene como resultado diversos movimientos macro cuyo nivel de sofisticación es complicado de estudiar o entender. De esta manera, un sistema complejo es cualquier sistema auto-otganizado (mayormente adaptativo) que exhibe, en conjunto, características de las mencionadas arriba (y algunas más). Más concretamente, Melanie Mitchell los define como sigue: “(…)un sistema en el que grandes redes de componentes, sin control central y con reglas operativas simples, dan lugar a un comportamiento colectivo complejo, a un procesamiento de información sofisticado y a la adaptación mediante el aprendizaje o la evolución.” (Mitchell 2009, 30).\nCon esta definición de sistemas complejos, el siguiente nivel conceptual de abstracción que podemos tocar es el del término “complejidad”. Tenemos una noción de lo que son los sistemas complejos concretos, pero “complejidad” en abstracto es un término mucho más oscuro, sobre todo cuando en el lenguaje cotidiano es utilizado con frencuencia, e intercambiado por otros términos como “complicado” o “difícil”. En realidad, a lo que formalmente se aspira cuando se habla de complejidad es a poder medir la complejidad de un sistema cuantitativamente; para esto, varios sistemas matemáticos han sido porpuestos (como la complejidad de Kolmogorov o la entropía de Shannon), pero aun no existe una manera universal de medir la complejidad de algo (como sí la hay, con ciertos límites, para fenómenos como el de la gravedad o la densidad), por lo que no existe una definición formal universalmente aceptada del concepto de complejidad, lo que se tiene son una serie de propuestas y características cualitativas, algunas de las cuales ya hemos mencionado aquí.\nFinalmente y con lo anterior en mente, la existencia de un concepto como el de “ciencias de la complejidad” responde, desde mi punto de vista, más a una aspiración que a una ciencia formalmente establecida; sin embargo, existen métodos formales, fenómenos sofisticados y una serie interesante de teorías, descripciones y marcos conceptuales asociados con el concepto de “complejidad”, que podrían constituir una ciencia cuyos fundamentos (tal como entendemos las ciencias formales y naturales hoy día) aun faltan por esgrimirse y clarificarse.\n\n\n\n\nReferencias\n\nMitchell, Melanie. 2009. Complexity: A Guided Tour. Oxford University Press.",
+    "crumbs": [
+      "Home",
+      "Ensayos",
+      "Ensayo 1"
     ]
   },
   {
