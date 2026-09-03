@@ -14,3 +14,14 @@ Reflexiones a partir de *Complexity: A Guided Tour*, Capítulo 1: *What is Compl
 **Agosto 2026**
 
 [Leer ensayo →](ensayo-01/) 
+
+
+## Ensayo 2 
+
+### [Sobre lo simple y lo complejo a partir del caos y las revoluciones científicas](ensayo-02/)
+
+Reflexiones a partir de *Chaos: Making a New Science*, Capítulo: "Revolutions", de James Gleick.
+
+**Septiembre 2026**
+
+[Leer ensayo →](ensayo-02/)

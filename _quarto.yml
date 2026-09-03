@@ -32,6 +32,14 @@ website:
           contents:
             - href: complex-systems/ensayos/ensayo-01/index.qmd
               text: "Ensayo 1"
+            - href: complex-systems/ensayos/ensayo-02/index.qmd
+              text: "Ensayo 2"
+            - href: complex-systems/ensayos/ensayo-02/index.qmd
+              text: "Ensayo 3"
+            - href: complex-systems/ensayos/ensayo-04/index.qmd
+              text: "Ensayo 4"
+            - href: complex-systems/ensayos/ensayo-05/index.qmd
+              text: "Ensayo 5"
 
         - href: complex-systems/practicas/index.qmd
           text: Prácticas computacionales

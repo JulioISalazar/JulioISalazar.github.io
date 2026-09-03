@@ -1,0 +1,25 @@
+---
+title: 'Sobre lo simple y lo complejo a partir del caos y las revoluciones científicas: Reflexiones a partir de Chaos: Making a New Science, de James Gleick (Capítulo: "Revolutions")'
+author: "Julio Salazar"
+date: "2026-09-02"
+date-format: "MMMM YYYY"
+lang: es
+sidebar: complex-systems
+bibliography: references.bib
+
+format:
+  html: default
+  pdf: default
+
+format-links:
+  - pdf
+---
+
+
+Detengámonos un momento en el fenómeno del péndulo: un péndulo simple moviéndose en un plano vertical, sin fricción y con un ángulo de oscilación pequeño, es un sistema que puede ser descrito con métodos matemáticos que se han estudiado y medido desde la épocca de Galileo Galilei. Sin embargo, si el ángulo de oscilación es grande y la fuerza con la que se empuja es suficientemente alta, el comportamiento del péndulo evoluciona de ser lineal a ser no lineal, y si agregamos variables como las de un segundo péndulo, el sistema no linear se vuelve caótico y, sin embargo, aun con reglas inciales simples y concretas.  
+
+El ejemplo anterior sirve para ilustrar los fenómenos fundamentales de los sistemas caóticos: empezamos con pocas variables (como un péndulo y la fuerza que lo empuja), reglas simples y movimientos predecibles usando métodos tradicionales de la física clásica, y estas variables terminan generando un comportamiento caótico, no lineal y con diferentes números de iteraciones que son increíblemente difíciiles de predecir. De esta manera, se puede ver ejemplificada la relación entre la simplicidad y la complejidad: a partir de reglas simples y concretas, emerge en ciertos fenómenos un comportamiento complejo, no lineal y caótico. En este sentido, la complejidad no es un fenómeno que surge de la complejidad de las reglas iniciales, sino que emerge de la interacción e iteración de reglas, y las dinámicas no lineales son la forma de su evolución temporal. De esta manera, el comportamiento global de un sistema caótico o complejo puede tener dinámicas muy distintas al comportamiento de sus partes, dado que, mientras que las partes (y la suma de las mismas) pueden ser simples, lineales y relativamente sencillas de predecir, el sistema completo suele ser exactamente todo lo contrario cuando analizamos este tipo de fenómenos. 
+
+James Gleick, en su libro *Chaos: Making a New Science* (Capítulo: "Revolutions")[@Gleick] recuerda el fenómeno al que Thomas Kuhn llamó como "Revoluciones": cuando se produce un cambio de paradigma en una rama particular de la ciencia (o incluso se establece una nueva ciencia por derecho propio, con sus métodos, fenómenos, teorías e historias particulares) y se empiezan a estudiar fenómenos con métodos radicalmente diferentes de los establecidos previamente en ese campo particular, resultando en un cambio completo de la forma de ver el mundo en la comunidad científica. Las revoluciones de este estilo suelden seguir una secuencia temporal: primero, se empiezan a observar anomalías en los fenómenos más simples que tradicionalmente se estudian en la rama de la ciencia en cuestión; segundo, se comienza a desarrollar un nuevo marco conceptual que permite explicar estas anomalías (normalmente acompañado de ideas novedosas, radicales y metodologías que cuestionan axiomas fundamentales preestablecidos); tercero, se desarrolla y publicauna nueva teoría que permite explicar los fenómenos de manera más completa; cuarto, esta nueva serie de métodos, técnicas y teorías es fuertemente cuestionada y rechazada por la comunidad científica existente, hasta que llega un punto en el que no puede seguir siendo ignorada y quinto, finalmente, se estableceuna nueva comunidad científica que adopta el nuevo paradigma y lo aplica a nuevos fenómenos.
+
+Así pues, los argumentos de Gleick implican que las teorías científicas revolucionarias tienen una forma general que es principio caótica: se cuestionan los fenómenos más elementales que una comunidad científica asume corrientemente (como el movimiento de un péndulo o el carácter absoluto del tiempo) y posteriormente se desarrolland herramientas mateméticas que involucran no linealidad, retroalimentación y otras características propias de la forma lógica del caos. Estas nuevas metodologías son rechazadas normalemente por varias razones, pero una de las más importantes es que cuestionan principios primeros, lo que lleva a que la comunidad replantee años de investigaciones, experimentos y desarrollos. que se habían dado por sentados y asumidos como verdad. De este modo, estudiar el caos formalmente puede constituir una forma eficiente de la posibilidad de desarrollar revoluciones en diversas ramas de la ciencia. 
