@@ -21,69 +21,27 @@
     "text": "Selected Work\n\nComplex Systems\nMathematical models, simulations, code, and essays exploring nonlinear dynamics, networks, emergence, and chaos.\nExplore Complex Systems →\n\n\nResearch\nSelected research and technical work.\nView Research →\n\n\nProjects\nAI, data, mathematical modelling, and software projects.\nView Projects →"
   },
   {
-    "objectID": "complex-systems/ensayos/index.html",
-    "href": "complex-systems/ensayos/index.html",
-    "title": "Ensayos",
+    "objectID": "complex-systems/ensayos/ensayo-02/index.html",
+    "href": "complex-systems/ensayos/ensayo-02/index.html",
+    "title": "Sobre lo simple y lo complejo a partir del caos y las revoluciones científicas: Reflexiones a partir de Chaos: Making a New Science, de James Gleick (Capítulo: “Revolutions”)",
     "section": "",
-    "text": "Ensayos escritos para el curso de Sistemas Complejos.",
+    "text": "Detengámonos un momento en el fenómeno del péndulo: un péndulo simple moviéndose en un plano vertical, sin fricción y con un ángulo de oscilación pequeño, es un sistema que puede ser descrito con métodos matemáticos que se han estudiado y medido desde la épocca de Galileo Galilei. Sin embargo, si el ángulo de oscilación es grande y la fuerza con la que se empuja es suficientemente alta, el comportamiento del péndulo evoluciona de ser lineal a ser no lineal, y si agregamos variables como las de un segundo péndulo, el sistema no linear se vuelve caótico y, sin embargo, aun con reglas inciales simples y concretas.\nEl ejemplo anterior sirve para ilustrar los fenómenos fundamentales de los sistemas caóticos: empezamos con pocas variables (como un péndulo y la fuerza que lo empuja), reglas simples y movimientos predecibles usando métodos tradicionales de la física clásica, y estas variables terminan generando un comportamiento caótico, no lineal y con diferentes números de iteraciones que son increíblemente difíciiles de predecir. De esta manera, se puede ver ejemplificada la relación entre la simplicidad y la complejidad: a partir de reglas simples y concretas, emerge en ciertos fenómenos un comportamiento complejo, no lineal y caótico. En este sentido, la complejidad no es un fenómeno que surge de la complejidad de las reglas iniciales, sino que emerge de la interacción e iteración de reglas, y las dinámicas no lineales son la forma de su evolución temporal. De esta manera, el comportamiento global de un sistema caótico o complejo puede tener dinámicas muy distintas al comportamiento de sus partes, dado que, mientras que las partes (y la suma de las mismas) pueden ser simples, lineales y relativamente sencillas de predecir, el sistema completo suele ser exactamente todo lo contrario cuando analizamos este tipo de fenómenos.\nJames Gleick, en su libro Chaos: Making a New Science (Capítulo: “Revolutions”)(Gleick 1987) recuerda el fenómeno al que Thomas Kuhn llamó como “Revoluciones”: cuando se produce un cambio de paradigma en una rama particular de la ciencia (o incluso se establece una nueva ciencia por derecho propio, con sus métodos, fenómenos, teorías e historias particulares) y se empiezan a estudiar fenómenos con métodos radicalmente diferentes de los establecidos previamente en ese campo particular, resultando en un cambio completo de la forma de ver el mundo en la comunidad científica. Las revoluciones de este estilo suelden seguir una secuencia temporal: primero, se empiezan a observar anomalías en los fenómenos más simples que tradicionalmente se estudian en la rama de la ciencia en cuestión; segundo, se comienza a desarrollar un nuevo marco conceptual que permite explicar estas anomalías (normalmente acompañado de ideas novedosas, radicales y metodologías que cuestionan axiomas fundamentales preestablecidos); tercero, se desarrolla y publicauna nueva teoría que permite explicar los fenómenos de manera más completa; cuarto, esta nueva serie de métodos, técnicas y teorías es fuertemente cuestionada y rechazada por la comunidad científica existente, hasta que llega un punto en el que no puede seguir siendo ignorada y quinto, finalmente, se estableceuna nueva comunidad científica que adopta el nuevo paradigma y lo aplica a nuevos fenómenos.\nAsí pues, los argumentos de Gleick implican que las teorías científicas revolucionarias tienen una forma general que es principio caótica: se cuestionan los fenómenos más elementales que una comunidad científica asume corrientemente (como el movimiento de un péndulo o el carácter absoluto del tiempo) y posteriormente se desarrolland herramientas mateméticas que involucran no linealidad, retroalimentación y otras características propias de la forma lógica del caos. Estas nuevas metodologías son rechazadas normalemente por varias razones, pero una de las más importantes es que cuestionan principios primeros, lo que lleva a que la comunidad replantee años de investigaciones, experimentos y desarrollos. que se habían dado por sentados y asumidos como verdad. De este modo, estudiar el caos formalmente puede constituir una forma eficiente de la posibilidad de desarrollar revoluciones en diversas ramas de la ciencia.\n\n\n\n\nReferencias\n\nGleick, James. 1987. Chaos: Making a New Science. Viking.",
     "crumbs": [
       "Home",
-      "Ensayos"
+      "Ensayos",
+      "Ensayo 2"
     ]
   },
   {
-    "objectID": "complex-systems/ensayos/index.html#ensayo-1",
-    "href": "complex-systems/ensayos/index.html#ensayo-1",
-    "title": "Ensayos",
-    "section": "Ensayo 1",
-    "text": "Ensayo 1\n\nCaracterísticas generales de los sistemas complejos\nReflexiones a partir de Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell.\nAgosto 2026\nLeer ensayo →",
-    "crumbs": [
-      "Home",
-      "Ensayos"
-    ]
-  },
-  {
-    "objectID": "complex-systems/practicas/index.html",
-    "href": "complex-systems/practicas/index.html",
-    "title": "Prácticas computacionales",
+    "objectID": "complex-systems/ensayos/ensayo-01/index.html",
+    "href": "complex-systems/ensayos/ensayo-01/index.html",
+    "title": "Características generales de los sistemas complejos: Reflexiones a partir del texto: Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell",
     "section": "",
-    "text": "Simulaciones, modelos, código y experimentos computacionales.\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Las neurociencias, la Inteligencia Artificial, la economía, la inmunología, el comportamiento colectivo de los insectos o la sociología digital (comportamiento de usuarios de la World Wide Web) parecen disciplinas aisladas, que estudian fenómenos distintos con técnicas distintas; sin embargo, estas y otras disciplinas que tradicionalmente han sido independientes –tanto metodológica como epistemológicamente– parecen compartir una serie de características generales que se pueden insertar dentro de la misma familia de conceptos: sistemas complejos, complejidad, ciencias de la complejidad. Conceptualmente, es preciso detenrnos en cada uno de estos.\nDe los tres conceptos mencionados arriba, es bastante plausible decir que el de sistemas complejos es el que tiene una correlación más concreta con los fenómenos empíricos. Un sistema complejo es, por ejemplo, el sistema inmunológico, en el que la emergencia de células que contrarrestan las características de las células agresoras se da mediante un comportamiento colectivo de dichas células en cantidades masivas de las mismas. Otro ejemplo de un sistema complejo es el del las Redes Neuronales Artificiales (ANNs), específicamente, diversos tipos de Redes Neuronales Profundas (DNNs), donde el diseño y las técnicas matemáticas para entrenarlas son inicialmente pre-especificados, pero a lo largo del tiempo, en conjunto (billones de redes), éstas parecen mostrar un comportamiento emergente (como generar imágenes, código o alucionaciones) que muchas veces no es explicable causalmente (es una caja negra). Asimismo, cualquier sistema maecoecónmico suficientemente grande (como la economía de México o el mercado de valores Nasdaq) constituye un sistema complejo: se compone de individuos cuyos objetivos económicos ideales se pueden resumir en maximizar sus ganancias monetarias y tiene como resultado diversos movimientos macro cuyo nivel de sofisticación es complicado de estudiar o entender. De esta manera, un sistema complejo es cualquier sistema auto-otganizado (mayormente adaptativo) que exhibe, en conjunto, características de las mencionadas arriba (y algunas más). Más concretamente, Melanie Mitchell los define como sigue: “(…)un sistema en el que grandes redes de componentes, sin control central y con reglas operativas simples, dan lugar a un comportamiento colectivo complejo, a un procesamiento de información sofisticado y a la adaptación mediante el aprendizaje o la evolución.” (Mitchell 2009, 30).\nCon esta definición de sistemas complejos, el siguiente nivel conceptual de abstracción que podemos tocar es el del término “complejidad”. Tenemos una noción de lo que son los sistemas complejos concretos, pero “complejidad” en abstracto es un término mucho más oscuro, sobre todo cuando en el lenguaje cotidiano es utilizado con frencuencia, e intercambiado por otros términos como “complicado” o “difícil”. En realidad, a lo que formalmente se aspira cuando se habla de complejidad es a poder medir la complejidad de un sistema cuantitativamente; para esto, varios sistemas matemáticos han sido porpuestos (como la complejidad de Kolmogorov o la entropía de Shannon), pero aun no existe una manera universal de medir la complejidad de algo (como sí la hay, con ciertos límites, para fenómenos como el de la gravedad o la densidad), por lo que no existe una definición formal universalmente aceptada del concepto de complejidad, lo que se tiene son una serie de propuestas y características cualitativas, algunas de las cuales ya hemos mencionado aquí.\nFinalmente y con lo anterior en mente, la existencia de un concepto como el de “ciencias de la complejidad” responde, desde mi punto de vista, más a una aspiración que a una ciencia formalmente establecida; sin embargo, existen métodos formales, fenómenos sofisticados y una serie interesante de teorías, descripciones y marcos conceptuales asociados con el concepto de “complejidad”, que podrían constituir una ciencia cuyos fundamentos (tal como entendemos las ciencias formales y naturales hoy día) aun faltan por esgrimirse y clarificarse.\n\n\n\n\nReferencias\n\nMitchell, Melanie. 2009. Complexity: A Guided Tour. Oxford University Press.",
     "crumbs": [
       "Home",
-      "Prácticas computacionales"
-    ]
-  },
-  {
-    "objectID": "complex-systems/proyecto-final/index.html",
-    "href": "complex-systems/proyecto-final/index.html",
-    "title": "Proyecto final",
-    "section": "",
-    "text": "Próximamente.",
-    "crumbs": [
-      "Home",
-      "Proyecto final"
-    ]
-  },
-  {
-    "objectID": "complex-systems/proyecto-final/index.html#resumen",
-    "href": "complex-systems/proyecto-final/index.html#resumen",
-    "title": "Proyecto final",
-    "section": "",
-    "text": "Próximamente.",
-    "crumbs": [
-      "Home",
-      "Proyecto final"
-    ]
-  },
-  {
-    "objectID": "complex-systems/seminario/index.html",
-    "href": "complex-systems/seminario/index.html",
-    "title": "Seminario",
-    "section": "",
-    "text": "Notas, presentaciones y trabajos desarrollados durante el seminario.\n\n\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Home",
-      "Seminario"
+      "Ensayos",
+      "Ensayo 1"
     ]
   },
   {
@@ -109,15 +67,80 @@
     ]
   },
   {
-    "objectID": "complex-systems/ensayos/ensayo-01/index.html",
-    "href": "complex-systems/ensayos/ensayo-01/index.html",
-    "title": "Características generales de los sistemas complejos: Reflexiones a partir del texto: Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell",
+    "objectID": "complex-systems/seminario/index.html",
+    "href": "complex-systems/seminario/index.html",
+    "title": "Seminario",
     "section": "",
-    "text": "Las neurociencias, la Inteligencia Artificial, la economía, la inmunología, el comportamiento colectivo de los insectos o la sociología digital (comportamiento de usuarios de la World Wide Web) parecen disciplinas aisladas, que estudian fenómenos distintos con técnicas distintas; sin embargo, estas y otras disciplinas que tradicionalmente han sido independientes –tanto metodológica como epistemológicamente– parecen compartir una serie de características generales que se pueden insertar dentro de la misma familia de conceptos: sistemas complejos, complejidad, ciencias de la complejidad. Conceptualmente, es preciso detenrnos en cada uno de estos.\nDe los tres conceptos mencionados arriba, es bastante plausible decir que el de sistemas complejos es el que tiene una correlación más concreta con los fenómenos empíricos. Un sistema complejo es, por ejemplo, el sistema inmunológico, en el que la emergencia de células que contrarrestan las características de las células agresoras se da mediante un comportamiento colectivo de dichas células en cantidades masivas de las mismas. Otro ejemplo de un sistema complejo es el del las Redes Neuronales Artificiales (ANNs), específicamente, diversos tipos de Redes Neuronales Profundas (DNNs), donde el diseño y las técnicas matemáticas para entrenarlas son inicialmente pre-especificados, pero a lo largo del tiempo, en conjunto (billones de redes), éstas parecen mostrar un comportamiento emergente (como generar imágenes, código o alucionaciones) que muchas veces no es explicable causalmente (es una caja negra). Asimismo, cualquier sistema maecoecónmico suficientemente grande (como la economía de México o el mercado de valores Nasdaq) constituye un sistema complejo: se compone de individuos cuyos objetivos económicos ideales se pueden resumir en maximizar sus ganancias monetarias y tiene como resultado diversos movimientos macro cuyo nivel de sofisticación es complicado de estudiar o entender. De esta manera, un sistema complejo es cualquier sistema auto-otganizado (mayormente adaptativo) que exhibe, en conjunto, características de las mencionadas arriba (y algunas más). Más concretamente, Melanie Mitchell los define como sigue: “(…)un sistema en el que grandes redes de componentes, sin control central y con reglas operativas simples, dan lugar a un comportamiento colectivo complejo, a un procesamiento de información sofisticado y a la adaptación mediante el aprendizaje o la evolución.” (Mitchell 2009, 30).\nCon esta definición de sistemas complejos, el siguiente nivel conceptual de abstracción que podemos tocar es el del término “complejidad”. Tenemos una noción de lo que son los sistemas complejos concretos, pero “complejidad” en abstracto es un término mucho más oscuro, sobre todo cuando en el lenguaje cotidiano es utilizado con frencuencia, e intercambiado por otros términos como “complicado” o “difícil”. En realidad, a lo que formalmente se aspira cuando se habla de complejidad es a poder medir la complejidad de un sistema cuantitativamente; para esto, varios sistemas matemáticos han sido porpuestos (como la complejidad de Kolmogorov o la entropía de Shannon), pero aun no existe una manera universal de medir la complejidad de algo (como sí la hay, con ciertos límites, para fenómenos como el de la gravedad o la densidad), por lo que no existe una definición formal universalmente aceptada del concepto de complejidad, lo que se tiene son una serie de propuestas y características cualitativas, algunas de las cuales ya hemos mencionado aquí.\nFinalmente y con lo anterior en mente, la existencia de un concepto como el de “ciencias de la complejidad” responde, desde mi punto de vista, más a una aspiración que a una ciencia formalmente establecida; sin embargo, existen métodos formales, fenómenos sofisticados y una serie interesante de teorías, descripciones y marcos conceptuales asociados con el concepto de “complejidad”, que podrían constituir una ciencia cuyos fundamentos (tal como entendemos las ciencias formales y naturales hoy día) aun faltan por esgrimirse y clarificarse.\n\n\n\n\nReferencias\n\nMitchell, Melanie. 2009. Complexity: A Guided Tour. Oxford University Press.",
+    "text": "Notas, presentaciones y trabajos desarrollados durante el seminario.\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Home",
-      "Ensayos",
-      "Ensayo 1"
+      "Seminario"
+    ]
+  },
+  {
+    "objectID": "complex-systems/proyecto-final/index.html",
+    "href": "complex-systems/proyecto-final/index.html",
+    "title": "Proyecto final",
+    "section": "",
+    "text": "Próximamente.",
+    "crumbs": [
+      "Home",
+      "Proyecto final"
+    ]
+  },
+  {
+    "objectID": "complex-systems/proyecto-final/index.html#resumen",
+    "href": "complex-systems/proyecto-final/index.html#resumen",
+    "title": "Proyecto final",
+    "section": "",
+    "text": "Próximamente.",
+    "crumbs": [
+      "Home",
+      "Proyecto final"
+    ]
+  },
+  {
+    "objectID": "complex-systems/practicas/index.html",
+    "href": "complex-systems/practicas/index.html",
+    "title": "Prácticas computacionales",
+    "section": "",
+    "text": "Simulaciones, modelos, código y experimentos computacionales.\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home",
+      "Prácticas computacionales"
+    ]
+  },
+  {
+    "objectID": "complex-systems/ensayos/index.html",
+    "href": "complex-systems/ensayos/index.html",
+    "title": "Ensayos",
+    "section": "",
+    "text": "Ensayos escritos para el curso de Sistemas Complejos.",
+    "crumbs": [
+      "Home",
+      "Ensayos"
+    ]
+  },
+  {
+    "objectID": "complex-systems/ensayos/index.html#ensayo-1",
+    "href": "complex-systems/ensayos/index.html#ensayo-1",
+    "title": "Ensayos",
+    "section": "Ensayo 1",
+    "text": "Ensayo 1\n\nCaracterísticas generales de los sistemas complejos\nReflexiones a partir de Complexity: A Guided Tour, Capítulo 1: What is Complexity?, de Melanie Mitchell.\nAgosto 2026\nLeer ensayo →",
+    "crumbs": [
+      "Home",
+      "Ensayos"
+    ]
+  },
+  {
+    "objectID": "complex-systems/ensayos/index.html#ensayo-2",
+    "href": "complex-systems/ensayos/index.html#ensayo-2",
+    "title": "Ensayos",
+    "section": "Ensayo 2",
+    "text": "Ensayo 2\n\nSobre lo simple y lo complejo a partir del caos y las revoluciones científicas\nReflexiones a partir de Chaos: Making a New Science, Capítulo: “Revolutions”, de James Gleick.\nSeptiembre 2026\nLeer ensayo →",
+    "crumbs": [
+      "Home",
+      "Ensayos"
     ]
   },
   {
