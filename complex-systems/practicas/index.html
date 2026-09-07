@@ -36,8 +36,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -75,35 +73,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: [],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -249,12 +218,23 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../complex-systems/practicas/index.html" class="sidebar-item-text sidebar-link active">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../complex-systems/practicas/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Prácticas computacionales</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../complex-systems/practicas/mapeo-logistico/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapeo logístico</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../complex-systems/seminario/index.html" class="sidebar-item-text sidebar-link">
@@ -272,8 +252,17 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#práctica-1" id="toc-práctica-1" class="nav-link active" data-scroll-target="#práctica-1">Práctica 1</a>
+  <ul class="collapse">
+  <li><a href="#explorando-la-dinámica-del-mapeo-logístico" id="toc-explorando-la-dinámica-del-mapeo-logístico" class="nav-link" data-scroll-target="#explorando-la-dinámica-del-mapeo-logístico">Explorando la dinámica del mapeo logístico</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -298,16 +287,19 @@ window.Quarto = {
 
 
 <p>Simulaciones, modelos, código y experimentos computacionales.</p>
+<section id="práctica-1" class="level2">
+<h2 class="anchored" data-anchor-id="práctica-1">Práctica 1</h2>
+<section id="explorando-la-dinámica-del-mapeo-logístico" class="level3">
+<h3 class="anchored" data-anchor-id="explorando-la-dinámica-del-mapeo-logístico"><a href="mapeo-logistico/">Explorando la dinámica del mapeo logístico</a></h3>
+<p>Series temporales, diagramas cobweb y de bifurcaciones para el mapeo <span class="math inline">\(x_{n+1} = a x_n(1-x_n)\)</span>, la ruta al caos por duplicación de periodo, y su relación con el eje real del conjunto de Mandelbrot vía el cambio de variable <span class="math inline">\(z_n = a(1/2 - x_n)\)</span>.</p>
+<p><strong>Septiembre 2026</strong></p>
+<p><a href="mapeo-logistico/">Ver práctica →</a></p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
