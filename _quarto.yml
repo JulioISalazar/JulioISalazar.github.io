@@ -41,8 +41,11 @@ website:
             - href: complex-systems/ensayos/ensayo-05/index.qmd
               text: "Ensayo 5"
 
-        - href: complex-systems/practicas/index.qmd
-          text: Prácticas computacionales
+        - section: "Prácticas computacionales"
+          href: complex-systems/practicas/index.qmd
+          contents:
+            - href: complex-systems/practicas/mapeo-logistico/index.ipynb
+              text: "Mapeo logístico"
 
         - href: complex-systems/seminario/index.qmd
           text: Seminario

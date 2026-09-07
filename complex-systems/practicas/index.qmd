@@ -1,9 +1,18 @@
 ---
 title: "Prácticas computacionales"
 sidebar: complex-systems
-listing:
-  contents: "*.qmd"
-  type: default
 ---
 
 Simulaciones, modelos, código y experimentos computacionales.
+
+## Práctica 1
+
+### [Explorando la dinámica del mapeo logístico](mapeo-logistico/)
+
+Series temporales, diagramas cobweb y de bifurcaciones para el mapeo $x_{n+1} = a x_n(1-x_n)$, la
+ruta al caos por duplicación de periodo, y su relación con el eje real del conjunto de Mandelbrot
+vía el cambio de variable $z_n = a(1/2 - x_n)$.
+
+**Septiembre 2026**
+
+[Ver práctica →](mapeo-logistico/)
