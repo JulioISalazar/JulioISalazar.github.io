@@ -16,3 +16,15 @@ vía el cambio de variable $z_n = a(1/2 - x_n)$.
 **Septiembre 2026**
 
 [Ver práctica →](mapeo-logistico/)
+
+## Práctica 2
+
+### [Exploración numérica de sistemas dinámicos](sistemas-dinamicos/)
+
+Lotka-Volterra, péndulo simple y sistema de Lorenz resueltos con `solve_ivp` (RK45): campos de
+direcciones, trayectorias en el espacio de fases, series temporales, y el crecimiento exponencial de
+la distancia entre dos soluciones de Lorenz con condiciones iniciales casi idénticas.
+
+**Septiembre 2026**
+
+[Ver práctica →](sistemas-dinamicos/)

@@ -46,6 +46,8 @@ website:
           contents:
             - href: complex-systems/practicas/mapeo-logistico/index.ipynb
               text: "Mapeo logístico"
+            - href: complex-systems/practicas/sistemas-dinamicos/index.ipynb
+              text: "Sistemas dinámicos"
 
         - href: complex-systems/seminario/index.qmd
           text: Seminario
