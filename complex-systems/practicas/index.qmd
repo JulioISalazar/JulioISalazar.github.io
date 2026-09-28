@@ -28,3 +28,16 @@ la distancia entre dos soluciones de Lorenz con condiciones iniciales casi idén
 **Septiembre 2026**
 
 [Ver práctica →](sistemas-dinamicos/)
+
+## Práctica 3
+
+### [Autómatas celulares](automatas-celulares/)
+
+Autómata celular unidimensional de radio $r = 2$ con la regla dada por su número de Wolfram: gráficas
+espacio-tiempo, exploración de reglas totalísticas y elementales según las cuatro clases de Wolfram,
+la gráfica de transición de estados completa para $L = 9$ con sus atractores y cuencas, y el juego de
+la vida.
+
+**Septiembre 2026**
+
+[Ver práctica →](automatas-celulares/)
