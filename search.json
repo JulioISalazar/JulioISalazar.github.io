@@ -363,7 +363,7 @@
     "href": "complex-systems/practicas/red-literaria/index.html",
     "title": "Red literaria de Cien años de soledad",
     "section": "",
-    "text": "Abrir en Colab\nComo en el ejemplo de las notas de la Clase 10, cada personaje es un nodo y hay una arista entre dos personajes si uno se menciona a menos de 15 palabras del otro; el peso de la arista es el número de veces que eso pasa en la novela. La novela es Cien años de soledad.\nimport os\nimport re\nimport math\nimport json\nimport html\nimport zipfile\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport networkx as nx\nfrom IPython.display import HTML, display",
+    "text": "Cada personaje es un nodo y hay una arista entre dos personajes si uno se menciona a menos de 15 palabras del otro; el peso de la arista es el número de veces que eso pasa en la novela. La novela es Cien años de soledad.\nimport os\nimport re\nimport math\nimport json\nimport html\nimport zipfile\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport networkx as nx\nfrom IPython.display import HTML, display",
     "crumbs": [
       "Home",
       "Prácticas computacionales",
