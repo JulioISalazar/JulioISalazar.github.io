@@ -372,7 +372,7 @@ window.Quarto = {
 <figcaption>Abrir en Colab</figcaption>
 </figure>
 </div>
-<p>Como en el ejemplo de las notas de la Clase 10, cada personaje es un nodo y hay una arista entre dos personajes si uno se menciona a menos de 15 palabras del otro; el peso de la arista es el número de veces que eso pasa en la novela. La novela es <em>Cien años de soledad</em>. El texto no viene incluido por derechos de autor, así que para correr el notebook hay que tener el epub (en Colab la celda de carga pide subirlo).</p>
+<p>Como en el ejemplo de las notas de la Clase 10, cada personaje es un nodo y hay una arista entre dos personajes si uno se menciona a menos de 15 palabras del otro; el peso de la arista es el número de veces que eso pasa en la novela. La novela es Cien años de soledad.</p>
 <div id="155d5f04" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:03.575138Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:03.574877Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.213265Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.212996Z&quot;}}" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
@@ -390,11 +390,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="i.-construcción-de-la-red">I. Construcción de la red</h2>
 <section id="texto" class="level3">
 <h3 class="anchored" data-anchor-id="texto">Texto</h3>
-<p>En esta edición cada uno de los 20 capítulos es un archivo del epub (<code>0001.xhtml</code> a <code>0020.xhtml</code>), así que basta con quitar las etiquetas HTML. Quedan fuera el prólogo, los ensayos y el glosario de la edición conmemorativa.</p>
-<div id="a2918496" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.214675Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.214542Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.238744Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.238479Z&quot;}}" data-execution_count="2">
+<p>En esta edición cada uno de los 20 capítulos es un archivo del epub (<code>0001.xhtml</code> a <code>0020.xhtml</code>). Quito el prólogo, los ensayos y el glosario de la edición conmemorativa.</p>
+<div id="a2918496" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.214675Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.214542Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.238744Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.238479Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>archivo <span class="op">=</span> <span class="st">"cien_años_de_soledad.epub"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(archivo):</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> google.colab <span class="im">import</span> files   <span class="co"># en Colab se sube el epub</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> google.colab <span class="im">import</span> files  </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    archivo <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(files.upload()))</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>capitulos <span class="op">=</span> []</span>
@@ -416,17 +416,16 @@ total: 138020</code></pre>
 </section>
 <section id="personajes" class="level3">
 <h3 class="anchored" data-anchor-id="personajes">Personajes</h3>
-<p>El código de la clase recibe una lista de nombres, pero aquí eso no alcanza porque los nombres se repiten de generación en generación. Cada entrada de la lista dice cómo aparece el nombre en el texto, a qué personaje corresponde y en qué capítulos vale. Los nombres completos (José Arcadio Buendía, Aureliano Segundo, Amaranta Úrsula, …) no tienen problema; los ambiguos se resuelven por capítulo:</p>
 <ul>
-<li>“José Arcadio” solo es el hijo mayor hasta el capítulo 10 y el seminarista, hijo de Fernanda, del 11 en adelante.</li>
-<li>“Aureliano” solo es el coronel hasta el capítulo 14 y Aureliano Babilonia, hijo de Meme, del 15 en adelante.</li>
-<li>“Remedios” sola es Remedios Moscote hasta el capítulo 7 y Remedios, la bella después; Renata Remedios es Meme.</li>
+<li>“José Arcadio”</li>
+<li>“Aureliano”</li>
+<li>“Remedios”</li>
 </ul>
-<p>Los cortes se eligieron contando en qué capítulos aparece cada forma. No se cuentan los apodos ni las descripciones (“el coronel”, “la abuela”) ni los pronombres, así que las menciones reales son más que las que se cuentan aquí.</p>
-<div id="87239963" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.239978Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.239904Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.244231Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.243990Z&quot;}}" data-execution_count="3">
+<p>Los cortes se eligieron contando en qué capítulos aparece cada form, no apdos.</p>
+<div id="87239963" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.239978Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.239904Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.244231Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.243990Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>todos <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">20</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>alias <span class="op">=</span> [</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (como aparece en el texto, personaje, capítulos)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"José Arcadio Buendía"</span>, <span class="st">"José Arcadio Buendía"</span>, todos),</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Úrsula Iguarán"</span>, <span class="st">"Úrsula"</span>, todos),</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Úrsula"</span>, <span class="st">"Úrsula"</span>, todos),</span>
@@ -499,8 +498,8 @@ total: 138020</code></pre>
 </section>
 <section id="matriz-de-adyacencias" class="level3">
 <h3 class="anchored" data-anchor-id="matriz-de-adyacencias">Matriz de adyacencias</h3>
-<p>Es el código de la clase con dos cambios. Primero, en cada posición del texto se busca el nombre más largo que coincida y se consumen sus palabras, para que “José Arcadio Buendía” no cuente también como “José Arcadio” ni “Amaranta Úrsula” como “Úrsula”. Segundo, como las apariciones están ordenadas, el ciclo interno se corta en cuanto la distancia pasa del radio (con unas 3000 apariciones el doble ciclo completo tarda bastante). La distancia es la misma de la clase: número de palabras entre el final del primer nombre y el inicio del segundo, con <code>radio = 15</code>.</p>
-<div id="c0558417" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.245256Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.245181Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.297748Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.297395Z&quot;}}" data-execution_count="4">
+<p>radio = 15.</p>
+<div id="c0558417" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.245256Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.245181Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.297748Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.297395Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>radio <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalizar(s):</span>
@@ -515,23 +514,22 @@ total: 138020</code></pre>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    tokens <span class="op">+=</span> t</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    capitulo_de <span class="op">+=</span> [k] <span class="op">*</span> <span class="bu">len</span>(t)</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># alias agrupados por su primera palabra, los más largos primero</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>por_inicio <span class="op">=</span> {}</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nombre, personaje, (c1, c2) <span class="kw">in</span> <span class="bu">sorted</span>(alias, key<span class="op">=</span><span class="kw">lambda</span> a: <span class="op">-</span><span class="bu">len</span>(tokenizar(a[<span class="dv">0</span>]))):</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> tokenizar(nombre)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    por_inicio.setdefault(t[<span class="dv">0</span>], []).append((t, personaje, c1, c2))</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>ocurrencias <span class="op">=</span> []  <span class="co"># (posición inicial, posición final, personaje)</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(tokens):</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t, personaje, c1, c2 <span class="kw">in</span> por_inicio.get(tokens[i], []):</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> tokens[i:i <span class="op">+</span> <span class="bu">len</span>(t)] <span class="op">==</span> t <span class="kw">and</span> c1 <span class="op">&lt;=</span> capitulo_de[i] <span class="op">&lt;=</span> c2:</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            ocurrencias.append((i, i <span class="op">+</span> <span class="bu">len</span>(t) <span class="op">-</span> <span class="dv">1</span>, personaje))</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            i <span class="op">+=</span> <span class="bu">len</span>(t) <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"apariciones encontradas:"</span>, <span class="bu">len</span>(ocurrencias))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>por_inicio <span class="op">=</span> {}</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nombre, personaje, (c1, c2) <span class="kw">in</span> <span class="bu">sorted</span>(alias, key<span class="op">=</span><span class="kw">lambda</span> a: <span class="op">-</span><span class="bu">len</span>(tokenizar(a[<span class="dv">0</span>]))):</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> tokenizar(nombre)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    por_inicio.setdefault(t[<span class="dv">0</span>], []).append((t, personaje, c1, c2))</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>ocurrencias <span class="op">=</span> [] </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(tokens):</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t, personaje, c1, c2 <span class="kw">in</span> por_inicio.get(tokens[i], []):</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> tokens[i:i <span class="op">+</span> <span class="bu">len</span>(t)] <span class="op">==</span> t <span class="kw">and</span> c1 <span class="op">&lt;=</span> capitulo_de[i] <span class="op">&lt;=</span> c2:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            ocurrencias.append((i, i <span class="op">+</span> <span class="bu">len</span>(t) <span class="op">-</span> <span class="dv">1</span>, personaje))</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            i <span class="op">+=</span> <span class="bu">len</span>(t) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"apariciones encontradas:"</span>, <span class="bu">len</span>(ocurrencias))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>apariciones encontradas: 3347</code></pre>
 </div>
@@ -830,7 +828,7 @@ total: 138020</code></pre>
 </div>
 </div>
 </div>
-<p>Se quitan los personajes con menos de 3 apariciones y los que no quedan conectados con nadie. La red es no dirigida y pesada.</p>
+<p>Se quitan los personajes con menos de 3 apariciones y los que no quedan conectados con nadie. Red no dirigida y pesada.</p>
 <div id="4b6e2d6f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.315466Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.315377Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.318938Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.318729Z&quot;}}" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.from_pandas_adjacency(matriz_interacciones)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>G.remove_nodes_from([p <span class="cf">for</span> p <span class="kw">in</span> personajes <span class="cf">if</span> apariciones[p] <span class="op">&lt;</span> <span class="dv">3</span>])</span>
@@ -845,80 +843,78 @@ total: 138020</code></pre>
 </section>
 <section id="ii.-dibujo-de-la-red" class="level2">
 <h2 class="anchored" data-anchor-id="ii.-dibujo-de-la-red">II. Dibujo de la red</h2>
-<p>Para dibujarla se usa cytoscape.js, la versión web de Cytoscape. El tamaño del nodo va con el número de apariciones, el grosor de la arista con su peso y el color es la comunidad que encuentra el método de Louvain (se discute en la parte III). La red se puede mover y hacer zoom, y al dar clic en un personaje se resaltan sus vecinos. También se guarda en <a href="red_cien_anos.graphml"><code>red_cien_anos.graphml</code></a> para abrirla en Cytoscape de escritorio.</p>
-<div id="5d2018eb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.319930Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.319831Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.340023Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.339791Z&quot;}}" data-execution_count="7">
+<p>Se usa cytoscape.js,</p>
+<div id="5d2018eb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.319930Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.319831Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.340023Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.339791Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>comunidades <span class="op">=</span> nx.community.louvain_communities(G, weight<span class="op">=</span><span class="st">"weight"</span>, seed<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># se numeran por el capítulo mediano en que se menciona a sus miembros</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>comunidades <span class="op">=</span> <span class="bu">sorted</span>(comunidades, key<span class="op">=</span><span class="kw">lambda</span> c: np.median([capitulo_de[i] <span class="cf">for</span> i, _, p <span class="kw">in</span> ocurrencias <span class="cf">if</span> p <span class="kw">in</span> c]))</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>comunidad <span class="op">=</span> {p: k <span class="cf">for</span> k, c <span class="kw">in</span> <span class="bu">enumerate</span>(comunidades) <span class="cf">for</span> p <span class="kw">in</span> c}</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(G, comunidad, <span class="st">"comunidad"</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>colores <span class="op">=</span> [<span class="st">"#4e79a7"</span>, <span class="st">"#e15759"</span>, <span class="st">"#59a14f"</span>, <span class="st">"#f28e2b"</span>, <span class="st">"#b07aa1"</span>, <span class="st">"#76b7b2"</span>]</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>peso_max <span class="op">=</span> <span class="bu">max</span>(d[<span class="st">"weight"</span>] <span class="cf">for</span> _, _, d <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>elementos <span class="op">=</span> [{<span class="st">"data"</span>: {<span class="st">"id"</span>: p, <span class="st">"apariciones"</span>: <span class="bu">int</span>(apariciones[p]),</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"color"</span>: colores[comunidad[p] <span class="op">%</span> <span class="bu">len</span>(colores)]}} <span class="cf">for</span> p <span class="kw">in</span> G]</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>elementos <span class="op">+=</span> [{<span class="st">"data"</span>: {<span class="st">"source"</span>: a, <span class="st">"target"</span>: b, <span class="st">"peso"</span>: <span class="bu">int</span>(d[<span class="st">"weight"</span>])}}</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>              <span class="cf">for</span> a, b, d <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>)]</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>plantilla <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;div id="red-cy" style="width: 100%; height: 680px; border: 1px solid #ddd; background: white;"&gt;&lt;/div&gt;</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;script&gt;</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="st">(function () {</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="st">  var elementos = __ELEMENTOS__;</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="st">  function dibujar(cytoscape) {</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="st">    var cy = cytoscape({</span></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="st">      container: document.getElementById("red-cy"),</span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="st">      elements: elementos,</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="st">      style: [</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="st">        {selector: "node", style: {</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="st">          "label": "data(id)", "background-color": "data(color)",</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="st">          "width": "mapData(apariciones, 3, __APMAX__, 10, 48)",</span></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="st">          "height": "mapData(apariciones, 3, __APMAX__, 10, 48)",</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="st">          "font-size": 10, "color": "#222", "text-valign": "top",</span></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="st">          "text-outline-color": "#fff", "text-outline-width": 2</span><span class="sc">}}</span><span class="st">,</span></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="st">        {selector: "edge", style: {</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="st">          "width": "mapData(peso, 1, __PESOMAX__, 0.5, 9)",</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="st">          "opacity": "mapData(peso, 1, __PESOMAX__, 0.15, 0.8)",</span></span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="st">          "line-color": "#888", "curve-style": "haystack"</span><span class="sc">}}</span><span class="st">,</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="st">        {selector: ".tenue", style: {"opacity": 0.06</span><span class="sc">}}</span></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="st">      ],</span></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="st">      layout: {name: "cose", animate: false, randomize: false, nodeRepulsion: 60000,</span></span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="st">               idealEdgeLength: 130, edgeElasticity: 60, gravity: 0.4, numIter: 2500,</span></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="st">               nodeOverlap: 20}</span></span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="st">    });</span></span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="st">    cy.on("tap", "node", function (e) {</span></span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="st">      var vecinos = e.target.closedNeighborhood();</span></span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="st">      cy.elements().addClass("tenue");</span></span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="st">      vecinos.removeClass("tenue");</span></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="st">    });</span></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="st">    cy.on("tap", function (e) { if (e.target === cy) cy.elements().removeClass("tenue"); });</span></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="st">  var url = "https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js";</span></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="st">  if (typeof window.require === "function" &amp;&amp; window.define &amp;&amp; window.define.amd) {</span></span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="st">    window.require([url], dibujar);   // la página de Quarto trae require.js</span></span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="st">  } else if (window.cytoscape) {</span></span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="st">    dibujar(window.cytoscape);</span></span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="st">  } else {</span></span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="st">    var s = document.createElement("script");</span></span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="st">    s.src = url;</span></span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="st">    s.onload = function () { dibujar(window.cytoscape); };</span></span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="st">    document.head.appendChild(s);</span></span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="st">})();</span></span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/script&gt;</span></span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="co"># posiciones iniciales de networkx para que cose parta siempre del mismo lugar</span></span>
-<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(G, weight<span class="op">=</span><span class="st">"weight"</span>, k<span class="op">=</span><span class="fl">0.4</span>, iterations<span class="op">=</span><span class="dv">200</span>, seed<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> elementos[:G.number_of_nodes()]:</span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>    x, y <span class="op">=</span> pos[e[<span class="st">"data"</span>][<span class="st">"id"</span>]]</span>
-<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>    e[<span class="st">"position"</span>] <span class="op">=</span> {<span class="st">"x"</span>: <span class="bu">float</span>(<span class="dv">600</span> <span class="op">*</span> x), <span class="st">"y"</span>: <span class="bu">float</span>(<span class="dv">600</span> <span class="op">*</span> y)}</span>
-<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>html_red <span class="op">=</span> (plantilla.replace(<span class="st">"__ELEMENTOS__"</span>, json.dumps(elementos, ensure_ascii<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>                     .replace(<span class="st">"__APMAX__"</span>, <span class="bu">str</span>(<span class="bu">max</span>(apariciones.values())))</span>
-<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>                     .replace(<span class="st">"__PESOMAX__"</span>, <span class="bu">str</span>(peso_max)))</span>
-<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>display(HTML(html_red))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>comunidades <span class="op">=</span> <span class="bu">sorted</span>(comunidades, key<span class="op">=</span><span class="kw">lambda</span> c: np.median([capitulo_de[i] <span class="cf">for</span> i, _, p <span class="kw">in</span> ocurrencias <span class="cf">if</span> p <span class="kw">in</span> c]))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>comunidad <span class="op">=</span> {p: k <span class="cf">for</span> k, c <span class="kw">in</span> <span class="bu">enumerate</span>(comunidades) <span class="cf">for</span> p <span class="kw">in</span> c}</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(G, comunidad, <span class="st">"comunidad"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>colores <span class="op">=</span> [<span class="st">"#4e79a7"</span>, <span class="st">"#e15759"</span>, <span class="st">"#59a14f"</span>, <span class="st">"#f28e2b"</span>, <span class="st">"#b07aa1"</span>, <span class="st">"#76b7b2"</span>]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>peso_max <span class="op">=</span> <span class="bu">max</span>(d[<span class="st">"weight"</span>] <span class="cf">for</span> _, _, d <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>elementos <span class="op">=</span> [{<span class="st">"data"</span>: {<span class="st">"id"</span>: p, <span class="st">"apariciones"</span>: <span class="bu">int</span>(apariciones[p]),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"color"</span>: colores[comunidad[p] <span class="op">%</span> <span class="bu">len</span>(colores)]}} <span class="cf">for</span> p <span class="kw">in</span> G]</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>elementos <span class="op">+=</span> [{<span class="st">"data"</span>: {<span class="st">"source"</span>: a, <span class="st">"target"</span>: b, <span class="st">"peso"</span>: <span class="bu">int</span>(d[<span class="st">"weight"</span>])}}</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>              <span class="cf">for</span> a, b, d <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>)]</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>plantilla <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;div id="red-cy" style="width: 100%; height: 680px; border: 1px solid #ddd; background: white;"&gt;&lt;/div&gt;</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;script&gt;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="st">(function () {</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="st">  var elementos = __ELEMENTOS__;</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="st">  function dibujar(cytoscape) {</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="st">    var cy = cytoscape({</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="st">      container: document.getElementById("red-cy"),</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="st">      elements: elementos,</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="st">      style: [</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="st">        {selector: "node", style: {</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="st">          "label": "data(id)", "background-color": "data(color)",</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="st">          "width": "mapData(apariciones, 3, __APMAX__, 10, 48)",</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="st">          "height": "mapData(apariciones, 3, __APMAX__, 10, 48)",</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="st">          "font-size": 10, "color": "#222", "text-valign": "top",</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="st">          "text-outline-color": "#fff", "text-outline-width": 2</span><span class="sc">}}</span><span class="st">,</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="st">        {selector: "edge", style: {</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="st">          "width": "mapData(peso, 1, __PESOMAX__, 0.5, 9)",</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="st">          "opacity": "mapData(peso, 1, __PESOMAX__, 0.15, 0.8)",</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="st">          "line-color": "#888", "curve-style": "haystack"</span><span class="sc">}}</span><span class="st">,</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="st">        {selector: ".tenue", style: {"opacity": 0.06</span><span class="sc">}}</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="st">      ],</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="st">      layout: {name: "cose", animate: false, randomize: false, nodeRepulsion: 60000,</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="st">               idealEdgeLength: 130, edgeElasticity: 60, gravity: 0.4, numIter: 2500,</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="st">               nodeOverlap: 20}</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="st">    });</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="st">    cy.on("tap", "node", function (e) {</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="st">      var vecinos = e.target.closedNeighborhood();</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="st">      cy.elements().addClass("tenue");</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="st">      vecinos.removeClass("tenue");</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="st">    });</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="st">    cy.on("tap", function (e) { if (e.target === cy) cy.elements().removeClass("tenue"); });</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="st">  var url = "https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js";</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="st">  if (typeof window.require === "function" &amp;&amp; window.define &amp;&amp; window.define.amd) {</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="st">    window.require([url], dibujar);   // la página de Quarto trae require.js</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="st">  } else if (window.cytoscape) {</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="st">    dibujar(window.cytoscape);</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="st">  } else {</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="st">    var s = document.createElement("script");</span></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="st">    s.src = url;</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="st">    s.onload = function () { dibujar(window.cytoscape); };</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="st">    document.head.appendChild(s);</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="st">})();</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/script&gt;</span></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(G, weight<span class="op">=</span><span class="st">"weight"</span>, k<span class="op">=</span><span class="fl">0.4</span>, iterations<span class="op">=</span><span class="dv">200</span>, seed<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> elementos[:G.number_of_nodes()]:</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>    x, y <span class="op">=</span> pos[e[<span class="st">"data"</span>][<span class="st">"id"</span>]]</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>    e[<span class="st">"position"</span>] <span class="op">=</span> {<span class="st">"x"</span>: <span class="bu">float</span>(<span class="dv">600</span> <span class="op">*</span> x), <span class="st">"y"</span>: <span class="bu">float</span>(<span class="dv">600</span> <span class="op">*</span> y)}</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>html_red <span class="op">=</span> (plantilla.replace(<span class="st">"__ELEMENTOS__"</span>, json.dumps(elementos, ensure_ascii<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>                     .replace(<span class="st">"__APMAX__"</span>, <span class="bu">str</span>(<span class="bu">max</span>(apariciones.values())))</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>                     .replace(<span class="st">"__PESOMAX__"</span>, <span class="bu">str</span>(peso_max)))</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>display(HTML(html_red))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 
 <div id="red-cy" style="width: 100%; height: 680px; border: 1px solid #ddd; background: white;"></div>
@@ -968,10 +964,10 @@ total: 138020</code></pre>
 </script>
 </div>
 </div>
-<div id="6cec7c0c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.341008Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.340935Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.466199Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.465948Z&quot;}}" data-execution_count="8">
+<div id="6cec7c0c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.341008Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.340935Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.466199Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.465948Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>nx.write_graphml(G, <span class="st">"red_cien_anos.graphml"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># la misma red en una figura fija</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># misma red en una figura fija</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">10</span>))</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edges(G, pos, width<span class="op">=</span>[<span class="fl">0.3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> d[<span class="st">"weight"</span>] <span class="op">/</span> peso_max <span class="cf">for</span> _, _, d <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>)],</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.35</span>, edge_color<span class="op">=</span><span class="st">"gray"</span>)</span>
@@ -989,13 +985,12 @@ total: 138020</code></pre>
 </div>
 </div>
 </div>
-<p>En el dibujo hay un núcleo muy denso alrededor de Úrsula, que tiene aristas gruesas con casi todos los Buendía (43 con Amaranta, 39 con el coronel, 21 con Fernanda y otras 21 con José Arcadio Buendía). Alrededor quedan los personajes secundarios, casi siempre colgados de uno o dos Buendía. Cada comunidad ocupa su propia zona y se mezclan poco. La otra arista muy pesada es la de Amaranta y Rebeca (32), las dos enamoradas de Pietro Crespi.</p>
 </section>
 <section id="iii.-análisis" class="level2">
 <h2 class="anchored" data-anchor-id="iii.-análisis">III. Análisis</h2>
 <section id="tamaño-densidad-y-componentes" class="level3">
 <h3 class="anchored" data-anchor-id="tamaño-densidad-y-componentes">Tamaño, densidad y componentes</h3>
-<div id="cd13cb5b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.467416Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.467336Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.517350Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.517118Z&quot;}}" data-execution_count="9">
+<div id="cd13cb5b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.467416Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.467336Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:04.517350Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:04.517118Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n, m <span class="op">=</span> G.number_of_nodes(), G.number_of_edges()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>grados <span class="op">=</span> <span class="bu">dict</span>(G.degree())</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fuerza <span class="op">=</span> <span class="bu">dict</span>(G.degree(weight<span class="op">=</span><span class="st">"weight"</span>))</span>
@@ -1004,7 +999,7 @@ total: 138020</code></pre>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"grado promedio ="</span>, <span class="bu">round</span>(<span class="dv">2</span><span class="op">*</span>m <span class="op">/</span> n, <span class="dv">2</span>))</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"componentes conexas:"</span>, nx.number_connected_components(G))</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>L_lap <span class="op">=</span> nx.laplacian_matrix(G).toarray()   <span class="co"># L = D - A, sin pesos</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>L_lap <span class="op">=</span> nx.laplacian_matrix(G).toarray()  </span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>valores <span class="op">=</span> np.sort(np.linalg.eigvalsh(L_lap))</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"autovalores cero del laplaciano:"</span>, <span class="bu">int</span>(np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(valores) <span class="op">&lt;</span> <span class="fl">1e-9</span>)))</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"valor de Fiedler:"</span>, <span class="bu">round</span>(valores[<span class="dv">1</span>], <span class="dv">3</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1045,12 +1040,11 @@ mediana del grado: 9.0
 fracción con grado &lt;= 7: 0.47   en una Poisson con la misma media: 0.15</code></pre>
 </div>
 </div>
-<p>Son 49 personajes y 268 aristas, con densidad 0.228: casi una de cada cuatro parejas posibles aparece junta al menos una vez. La red es conexa (un solo autovalor cero del laplaciano, como debe ser), y el valor de Fiedler, 1.99, indica que no hay un corte fácil que la parta en dos.</p>
-<p>El grado promedio es 10.9, pero la distribución está lejos de la de una red aleatoria: el 47% de los personajes tiene grado 7 o menos, contra 15% en una Poisson con la misma media, hay un bloque intermedio entre 11 y 19 que es casi todo la familia, y unos cuantos hubs muy por encima, el coronel con 36 y Úrsula con 32. Con 49 nodos no tiene sentido ajustar una ley de potencias, pero la forma (muchos con pocos vecinos y pocos con muchos) es la que describen las notas para las redes reales.</p>
+<p>Lad red es conexa (un solo autovalor cero del laplaciano), y el valor de Fiedler, 1.99, llo que indica que no hay un corte fácil que la parta en dos.</p>
 </section>
 <section id="distancias-y-mundo-pequeño" class="level3">
 <h3 class="anchored" data-anchor-id="distancias-y-mundo-pequeño">Distancias y mundo pequeño</h3>
-<p>Las distancias y las centralidades se calculan sobre la red sin pesos: en networkx el peso cuenta como longitud del camino, y aquí un peso grande significa lo contrario (personajes más cercanos). Configuración de la comparación: 200 redes de Erdős-Rényi <span class="math inline">\(G(n, m)\)</span> con los mismos <span class="math inline">\(n\)</span> y <span class="math inline">\(m\)</span>.</p>
+<p>Distancias y las centralidades se calculan sobre la red sin pesos Conf., de la comparación: 200 redes de Erdős-Rényi <span class="math inline">\(G(n, m)\)</span> con los mismos <span class="math inline">\(n\)</span> y <span class="math inline">\(m\)</span>.</p>
 <div id="6924e0de" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:04.666295Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:04.666132Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:05.081445Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:05.081182Z&quot;}}" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> nx.average_shortest_path_length(G)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> nx.average_clustering(G)</span>
@@ -1113,8 +1107,7 @@ periferia: 37 de 49 nodos</code></pre>
 </div>
 </div>
 </div>
-<p>La distancia promedio es 1.92 y el diámetro 3, así que de cualquier personaje a cualquier otro se llega en a lo más tres pasos. El radio es 2 y el centro tiene 12 nodos: además de Úrsula, el coronel y Aureliano Segundo están Pilar Ternera, Melquíades y Santa Sofía de la Piedad, que aparecen relativamente poco pero atraviesan casi toda la novela.</p>
-<p>Contra las redes aleatorias con los mismos <span class="math inline">\(n\)</span> y <span class="math inline">\(m\)</span>, la <span class="math inline">\(L\)</span> es apenas mayor (1.92 contra 1.83) y el coeficiente de acumulación es tres veces más grande (0.71 contra 0.23), con la transitividad más del doble. Es la combinación de las redes de mundo pequeño en las notas. Hay que tomarlo con cuidado: con 49 nodos y densidad 0.23 una <span class="math inline">\(L\)</span> chica casi viene dada, así que lo que de verdad distingue a la red de la novela es la acumulación, que los vecinos de un personaje también se mencionen entre ellos.</p>
+<p>La distancia promedio es 1.92 y el diámetro 3, por lo qye que de cualquier personaje a cualquier otro se llega en a lo más tres pasos.</p>
 </section>
 <section id="centralidad" class="level3">
 <h3 class="anchored" data-anchor-id="centralidad">Centralidad</h3>
@@ -1303,24 +1296,22 @@ periferia: 37 de 49 nodos</code></pre>
 </div>
 </div>
 </div>
-<p>Las centralidades no dicen lo mismo. Por fuerza (grado pesado) la primera es Úrsula con 306, bastante arriba del coronel (220): es la que más veces aparece junto a otro personaje. En intermediación el coronel le saca casi el doble (0.242 contra 0.128) y también tiene la mayor cercanía (0.80). Es el que más vecinos tiene, 36, y en parte se debe a las guerras: varios de los personajes que entran a la novela con ellas tienen su arista más fuerte con él (Gerineldo Márquez 16, Moncada 11, Aureliano Triste 5). Después vienen Aureliano Babilonia y Aureliano Segundo, que juegan ese papel con los personajes del final y con los de la época de la compañía bananera.</p>
-<p>Llama la atención Melquíades en el quinto lugar de intermediación con sólo 102 apariciones. Sus aristas más fuertes son con José Arcadio Buendía (12) y con Aureliano Babilonia (11): el primero de la familia y el que al final descifra los pergaminos. En las menciones por capítulo de más abajo se ve que aparece al principio, casi desaparece a la mitad de la novela y vuelve en los últimos capítulos.</p>
+<p>Úrsula lidera en fuerza (306 frente a 220 del coronel), pero el coronelen intermediación (0.242 contra 0.128), en cercanía (0.80) y en número de vecinos (36). Esto se explica en parte por las guerras: Gerineldo Márquez (16), Moncada (11) y Aureliano Triste (5) tienen con él su arista más fuerte. Melquíades queda quinto en intermediación con apenas 102 apariciones, gracias a sus aristas con José Arcadio Buendía (12) y Aureliano Babilonia (11); arece al inicio, casi desaparece a mitad de la novela y regresa en los últimos capítulos.</p>
 </section>
 <section id="comunidades" class="level3">
 <h3 class="anchored" data-anchor-id="comunidades">Comunidades</h3>
-<div id="f062942e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:05.094219Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:05.094139Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:05.195837Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:05.195569Z&quot;}}" data-execution_count="13">
+<div id="f062942e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:05.094219Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:05.094139Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:05.195837Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:05.195569Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"modularidad:"</span>, <span class="bu">round</span>(nx.community.modularity(G, comunidades, weight<span class="op">=</span><span class="st">"weight"</span>), <span class="dv">3</span>))</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, c <span class="kw">in</span> <span class="bu">enumerate</span>(comunidades):</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"comunidad </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span><span class="bu">len</span>(c)<span class="sc">}</span><span class="ss">):"</span>, <span class="st">", "</span>.join(<span class="bu">sorted</span>(c, key<span class="op">=</span><span class="kw">lambda</span> p: <span class="op">-</span>apariciones[p])))</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Louvain depende de la semilla, se revisa con otras 50</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>tamanos <span class="op">=</span> Counter(<span class="bu">tuple</span>(<span class="bu">sorted</span>(<span class="bu">len</span>(c) <span class="cf">for</span> c <span class="kw">in</span> nx.community.louvain_communities(G, weight<span class="op">=</span><span class="st">"weight"</span>, seed<span class="op">=</span>s)))</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                  <span class="cf">for</span> s <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>))</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tamaños de las comunidades en 50 semillas:"</span>, tamanos.most_common())</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> [<span class="st">"Coronel Aureliano Buendía"</span>, <span class="st">"Úrsula"</span>, <span class="st">"Melquíades"</span>, <span class="st">"Pilar Ternera"</span>]:</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(p, <span class="st">"tiene vecinos en las comunidades"</span>, <span class="bu">dict</span>(<span class="bu">sorted</span>(Counter(comunidad[q] <span class="cf">for</span> q <span class="kw">in</span> G[p]).items())))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>tamanos <span class="op">=</span> Counter(<span class="bu">tuple</span>(<span class="bu">sorted</span>(<span class="bu">len</span>(c) <span class="cf">for</span> c <span class="kw">in</span> nx.community.louvain_communities(G, weight<span class="op">=</span><span class="st">"weight"</span>, seed<span class="op">=</span>s)))</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                  <span class="cf">for</span> s <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>))</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tamaños de las comunidades en 50 semillas:"</span>, tamanos.most_common())</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> [<span class="st">"Coronel Aureliano Buendía"</span>, <span class="st">"Úrsula"</span>, <span class="st">"Melquíades"</span>, <span class="st">"Pilar Ternera"</span>]:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(p, <span class="st">"tiene vecinos en las comunidades"</span>, <span class="bu">dict</span>(<span class="bu">sorted</span>(Counter(comunidad[q] <span class="cf">for</span> q <span class="kw">in</span> G[p]).items())))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>modularidad: 0.283
 comunidad 0 (8): José Arcadio Buendía, Melquíades, José Arcadio Segundo, Santa Sofía de la Piedad, Apolinar Moscote, Prudencio Aguilar, Visitación, Cataure
@@ -1334,7 +1325,6 @@ Melquíades tiene vecinos en las comunidades {0: 6, 1: 8, 2: 2, 3: 5}
 Pilar Ternera tiene vecinos en las comunidades {0: 2, 1: 9, 2: 4, 3: 2}</code></pre>
 </div>
 </div>
-<p>Para leer las comunidades en el tiempo: menciones por capítulo de los personajes con al menos 20 apariciones, normalizadas por renglón (1 es el capítulo donde más se menciona a cada uno) y ordenados por el capítulo promedio en que se les menciona. El color del nombre es su comunidad.</p>
 <div id="fbf6a61b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:05.196985Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:05.196903Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:05.460951Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:05.460689Z&quot;}}" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>por_capitulo <span class="op">=</span> pd.DataFrame(<span class="dv">0</span>, index<span class="op">=</span>personajes, columns<span class="op">=</span><span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> inicio, _, p <span class="kw">in</span> ocurrencias:</span>
@@ -1362,18 +1352,11 @@ Pilar Ternera tiene vecinos en las comunidades {0: 2, 1: 9, 2: 4, 3: 2}</code></
 </div>
 </div>
 </div>
-<p>Louvain da cuatro comunidades con modularidad 0.28, numeradas por el capítulo mediano en que se menciona a sus miembros:</p>
-<ol start="0" type="1">
-<li>José Arcadio Buendía, Melquíades, Prudencio Aguilar, Apolinar Moscote, Visitación y Cataure: la fundación de Macondo y la peste del insomnio. Con ellos quedan José Arcadio Segundo y su madre Santa Sofía de la Piedad. Él es el que, mucho después, se encierra en el cuarto de Melquíades a estudiar los pergaminos, aunque esta asignación es la menos firme: en 21 de las 50 semillas los dos se pasan a la comunidad de Aureliano Segundo, su gemelo.</li>
-<li>La más grande (20): Úrsula, el coronel, Amaranta, Rebeca, Arcadio, José Arcadio, Pietro Crespi, Remedios Moscote, Pilar Ternera, Gerineldo Márquez, Moncada… la segunda y tercera generación y las guerras.</li>
-<li>Aureliano Segundo, Fernanda, Meme, Petra Cotes, Mauricio Babilonia, Mr.&nbsp;Brown, Mr.&nbsp;Herbert y el padre Antonio Isabel: la llegada de Fernanda, la bonanza y la compañía bananera.</li>
-<li>Aureliano Babilonia, Amaranta Úrsula, el seminarista, Gastón, Nigromanta y los amigos de la librería (Gabriel, Álvaro, Germán, Alfonso): el final.</li>
-</ol>
-<p>En el mapa de calor, ordenado por capítulo promedio, los nombres quedan casi por bloques de color: azul y rojo revueltos arriba, verde en medio y naranja al final. La red no sabe nada del tiempo, sólo de qué nombres están cerca, pero las comunidades que salen son las épocas de la novela. Tiene sentido, en una historia de cien años dos personajes casi sólo se mencionan juntos si vivieron al mismo tiempo, o si uno se acuerda del otro. Las excepciones son las que cruzan todo el libro: Úrsula, Pilar Ternera y Melquíades. Esos tres y el coronel tienen vecinos en las cuatro comunidades; el coronel tiene 18 de sus 36 vecinos fuera de la suya y Melquíades 15 de 21, por eso los dos están tan arriba en intermediación.</p>
+<p>Louvain da cuatro comunidades (modularidad 0.28), numeradas por capítulo mediano: La 0 tienee a José Arcadio Buendía, Melquíades, Prudencio Aguilar, Apolinar Moscote, Visitación, Cataure, José Arcadio Segundo y Santa Sofía de la Piedad; estos dos últimos pasan a la comunidad 2 en 21 de 50 semillas. La 1 es la mayor, con 20 miembros: Úrsula, el coronel, Amaranta, Rebeca, Arcadio, José Arcadio, Pietro Crespi, Remedios Moscote, Pilar Ternera, Gerineldo Márquez, Moncada y otros. La 2 aAureliano Segundo, Fernanda, Meme, Petra Cotes, Mauricio Babilonia, Mr.&nbsp;Brown, Mr.&nbsp;Herbert y el padre Antonio Isabel. La 3 incluye a Aureliano Babilonia, Amaranta Úrsula, el seminarista, Gastón, Nigromanta, Gabriel, Álvadro, Germán y Alfonso (Úrsula, Pilar Ternera, Melquíades y el coronel tienen vecinos en las cuatro comunidades). El coronel tiene 18 de sus 36 vecinos fuera de la suya, y Melquíades 15 de 21.</p>
 </section>
 <section id="robustez" class="level3">
 <h3 class="anchored" data-anchor-id="robustez">Robustez</h3>
-<p>Las notas dicen que estas redes aguantan bien que se quiten nodos al azar pero no que se quiten los hubs. Se quitan nodos uno por uno, en orden de grado (ataque) o al azar (promedio de 200 órdenes), y se mide el tamaño de la componente gigante.</p>
+<p>Se quitan nodos uno por uno, en orden de grado (ataque) o al azar (promedio de 200 órdenes)</p>
 <div id="b6c371c9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-10T04:08:05.462157Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-10T04:08:05.462065Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-10T04:08:05.661824Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-10T04:08:05.661574Z&quot;}}" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gigante(H):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">max</span>((<span class="bu">len</span>(c) <span class="cf">for</span> c <span class="kw">in</span> nx.connected_components(H)), default<span class="op">=</span><span class="dv">0</span>)</span>
@@ -1420,15 +1403,14 @@ la gigante queda con 16 de los 35 nodos que quedan
 al azar, con 14 nodos quitados la gigante conserva en promedio 34.6 nodos</code></pre>
 </div>
 </div>
-<p>Quitando nodos al azar, la componente gigante sólo pierde los nodos que se quitan (la curva naranja es la recta <span class="math inline">\(1 - k/n\)</span>): ningún personaje secundario sostiene a nadie. Con el ataque, hasta 11 nodos pasa casi lo mismo, pero entre el 12 y el 14 la red se rompe. Con 14 fuera, la gigante se queda con 16 de los 35 nodos que quedan, mientras que al azar conservaría prácticamente todos. Esos 14 son los Buendía (de sangre, por adopción o por matrimonio) más Melquíades y Pilar Ternera. Lo que sobra son los personajes de Macondo, que casi no se mencionan entre ellos sino a través de la familia.</p>
+<p>Al quitar nodos al azar, la componente gigante solo pierde los nodos retirados y sigue la recta <span class="math inline">\(1 - k/n\)</span>. En el ataque dirigido el comportamient es casi igual hasta 11 nodos, y la red se rompe entre el 12 y el 14. Por otr parre, on 14 nodos fuera, la gigante conserva 16 de los 35 restantes, mientras que al azar conservaría prácticamente todos.</p>
 </section>
 </section>
 <section id="conclusiones" class="level2">
 <h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
-<p>La red dice primero que la novela es la historia de una casa. Hay un núcleo de unas quince personas, casi todas Buendía, muy conectadas entre sí, y todos los demás cuelgan de ellas: si se quitan, Macondo se deshace en pedazos, y si se quitan personajes al azar casi no pasa nada. Dentro de ese núcleo, Úrsula es la que más peso acumula y la que está presente desde el primer capítulo hasta casi el final, es lo que sostiene a la familia entre generaciones; el coronel es el que más vecinos tiene y el que mejor conecta la casa con lo de fuera, sobre todo con la guerra.</p>
-<p>Lo segundo es el tiempo. Las comunidades salieron sólo de la cercanía de los nombres, y aun así son las épocas de la novela en orden: la fundación, las guerras, la bonanza bananera y el final. Las generaciones casi no se tocan entre ellas más que a través de unos pocos personajes longevos, y de Melquíades, cuya arista con Aureliano Babilonia es de las pocas que unen directamente el principio con el final del libro, como los pergaminos.</p>
-<p>Sobre el tipo de red, tiene acumulación alta comparada con una red aleatoria del mismo tamaño y distancias igual de cortas, que es lo que caracteriza a una red de mundo pequeño, y una distribución de grados muy desigual, con pocos hubs. Lo que se puede afirmar con 49 nodos es eso, no que siga una ley de potencias.</p>
-<p>El método tiene límites claros. Que dos nombres estén cerca no quiere decir que los personajes interactúen (a veces el narrador sólo los enumera), no se cuentan apodos ni pronombres, los cortes por capítulo para los nombres repetidos seguramente se equivocan cerca de los bordes, y el radio de 15 palabras es arbitrario. Lo que más trabajo costó fue lo mismo que Úrsula nota en la novela: que todos se llaman igual.</p>
+<p>La red dice primero que la novela es la historia de una casa: núcleo de alredor de quince personas muy conectadas entre sí, y todos los demás cuelgan de ellas: si se quitan, Macondo se deshace en pedazos, y si se quitan personajes al azar casi no pasa nada. Dentro de ese núcleo, Úrsula es la que más peso acumula y la que está presente desde el primer capítulo hasta casi el final, sostiene a la familia a través generaciones; el coronel es el que más vecinos tiene y el que mejor conecta la casa con lo de fuera, sobre todo con la guerra.</p>
+<p>Las comunidades, a s vez, salieron sólo de la cercanía de los nombres, y aun así son las épocas de la novela en orden: la fundación, las guerras, la bonanza bananera y el final. Las generaciones casi no se tocan entre ellas más que a través de unos pocos personajes, y de Melquíades, cuya arista con Aureliano Babilonia es de las pocas que unen directamente el principio con el final del libro.</p>
+<p>En suma, la red tiene acumulación alta frente a una red aleatoria del mismo tamaño, distancias igual de cortas y una distribución de grados desigual (pocos hubs). Es decir, es de mundo pequeño; con 49 nodos no se puede afirmar una ley de potencias. Entre las numerosas limitaciones están que la co-mención no implica interacción, que no se cuentan apodos ni pronombres, que los cortes por capítulo de los nombres repetidos pueden fallar en los bordes y que el radio de 15 palabras es arbitrario.</p>
 
 
 </section>
