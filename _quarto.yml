@@ -50,6 +50,8 @@ website:
               text: "Sistemas dinámicos"
             - href: complex-systems/practicas/automatas-celulares/index.ipynb
               text: "Autómatas celulares"
+            - href: complex-systems/practicas/red-literaria/index.ipynb
+              text: "Red literaria"
 
         - href: complex-systems/seminario/index.qmd
           text: Seminario

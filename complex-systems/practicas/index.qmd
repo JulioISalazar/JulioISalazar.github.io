@@ -41,3 +41,15 @@ la vida.
 **Septiembre 2026**
 
 [Ver práctica →](automatas-celulares/)
+
+## Práctica 4
+
+### [Red literaria de *Cien años de soledad*](red-literaria/)
+
+Red de personajes de la novela con una arista cada vez que dos nombres aparecen a menos de 15 palabras:
+dibujo interactivo con Cytoscape, centralidades, comparación con redes de Erdős-Rényi (mundo pequeño),
+comunidades de Louvain que resultan ser las épocas de la novela y robustez ante ataques a los hubs.
+
+**Octubre 2026**
+
+[Ver práctica →](red-literaria/)
